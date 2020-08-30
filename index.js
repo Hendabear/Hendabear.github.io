@@ -1,5 +1,12 @@
 console.log('It works tho.')
 
+class Encounter{
+	constructor(name, description){
+		this.name = name
+		this.description = description
+	}
+}
+
 let button = document.getElementById('Engage');
 console.dir(button)
 
@@ -18,26 +25,31 @@ function getRandomIntInclusive(min, max) {
 function terrainEncounters(roll) {
 
 	const table = {
-		1: 'Boneyard',
-		2: 'Cliff and ladder',
-		3: 'Crystal clusters',
-		4: 'Fungus cavern',
-		5: 'Gas leak',
-		6: 'Gorge',
-		7: 'High ledge',
-		8: 'Horrid sounds',
-		9: 'Lava swell',
-		10: 'Muck pit',
-		11: 'Rockfall',
-		12: 'Rope bridge',
-		13: 'Ruins',
-		14: 'Shelter',
-		15: 'Sinkhole',
-		16: 'Slime or mold',
-		17: 'Steam vent',
-		18: 'Underground stream',
-		19: 'Warning sign',
-		20: 'Webs',
+		1: new Encounter('Boneyard', `
+			The characters come upon an eerie cavern littered with countless bones of various creatures.
+			Whether the site is a natural graveyard for some Underdark species or the former lair of a fearsome predator, the characters can potentially gather useful material for crafting among the bones.
+			When the party enters a boneyard, roll a d20 and consult the table to determine what creatures, if any are present. 
+			The undead rise up out of the bones and attack when the first characters are halfway across the cavern.
+			`),
+		2: new Encounter('Cliff and ladder','No description yet'),
+		3: new Encounter('Crystal clusters','No description yet'),
+		4: new Encounter('Fungus cavern','No description yet'),
+		5: new Encounter('Gas leak','No description yet'),
+		6: new Encounter('Gorge','No description yet'),
+		7: new Encounter('High ledge','No description yet'),
+		8: new Encounter('Horrid sounds','No description yet'),
+		9: new Encounter('Lava swell','No description yet'),
+		10: new Encounter('Muck pit','No description yet'),
+		11: new Encounter('Rockfall','No description yet'),
+		12: new Encounter('Rope bridge','No description yet'),
+		13: new Encounter('Ruins','No description yet'),
+		14: new Encounter('Shelter','No description yet'),
+		15: new Encounter('Sinkhole','No description yet'),
+		16: new Encounter('Slime or mold','No description yet'),
+		17: new Encounter('Steam vent','No description yet'),
+		18: new Encounter('Underground stream','No description yet'),
+		19: new Encounter('Warning sign','No description yet'),
+		20: new Encounter('Webs','No description yet'),
 	}
 	return table[roll]
 }
@@ -97,3 +109,4 @@ function creatureEncounters(roll) {
 			return 'Traders';
 	}
 } 
+
