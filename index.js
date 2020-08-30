@@ -4,11 +4,11 @@ let button = document.getElementById('Engage');
 console.dir(button)
 
 button.addEventListener('click', function (event) {
-  let result = document.getElementById('The-Roll');
+  
   let diceNumber = getRandomIntInclusive(1, 20);
-  let terrainValue = terrainEncounters(diceNumber);
-
-  result.innerText = terrainValue
+  let randomEncounterValue = randomEncounters(diceNumber);
+  let result = document.getElementById('The-Roll');
+  result.innerText = randomEncounterValue
 });
 
 function getRandomIntInclusive(min, max) {
@@ -40,4 +40,25 @@ function terrainEncounters(roll) {
 		20: 'Webs',
 	}
 	return table[roll]
+}
+
+function randomEncounters(roll) {
+	if(roll < 14) {
+		// noEncounter
+		return 'No Encounter';
+	}
+	else if(roll === 14 || roll === 15 ) {
+		let diceNumber = getRandomIntInclusive(1, 20);
+  		return terrainEncounters(diceNumber);
+	}
+	else if(roll === 16 || roll ===17) {
+  		// one or more creatures
+  		return 'Creature Encounter';
+	}
+  	else {
+  		let diceNumber = getRandomIntInclusive(1, 20);
+  		return terrainEncounters(diceNumber);
+  		// terrain encounter featuring one or more creatures
+  	}
+
 }
